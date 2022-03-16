@@ -13,7 +13,7 @@ const _uiReducer = createReducer(
   initialState,
 
   on(isLoading, (state) => ({ ...state, isLoading: true })),
-  on(stopLoading, (state) => ({ ...state, isLoading: true }))
+  on(stopLoading, (state) => ({ ...state, stopLoading: true }))
 );
 
 export function uiReducer(state, action) {
