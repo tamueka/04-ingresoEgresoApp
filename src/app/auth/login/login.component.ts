@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
-  cargando: boolean;
+  cargando = false;
   uiSubscription: Subscription;
 
   constructor(
@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.uiSubscription.unsubscribe();
+    this.cargando = false;
     console.log(`Cancelamos cargando`);
   }
 
@@ -47,13 +48,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     this.store.dispatch(ui.isLoading());
-
-    /*     Swal.fire({
-      title: 'Espere por favor',
-      didOpen: () => {
-        Swal.showLoading();
-      },
-    }); */
 
     const { correo, password } = this.loginForm.value;
 
@@ -66,12 +60,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       })
       .catch((err) => {
         console.error(err);
-
-        /*         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: err.message,
-        }); */
       });
   }
 }

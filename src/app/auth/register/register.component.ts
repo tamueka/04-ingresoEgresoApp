@@ -14,7 +14,7 @@ import * as ui from '../../shared/ui.actions';
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   registroForm: FormGroup;
-  cargando: boolean;
+  cargando = false;
   uiSubscription: Subscription;
 
   constructor(
@@ -39,6 +39,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.uiSubscription.unsubscribe();
+    this.cargando = false;
     console.log('Cancelamos cargando');
   }
 
@@ -46,13 +47,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
     if (this.registroForm.invalid) {
       return;
     }
-
-    /*     Swal.fire({
-      title: 'Espere por favor',
-      didOpen: () => {
-        Swal.showLoading();
-      },
-    }); */
 
     this.store.dispatch(ui.isLoading());
 
@@ -67,12 +61,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
       })
       .catch((err) => {
         console.error(err);
-
-        /*         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: err.message,
-        }); */
       });
   }
 }
