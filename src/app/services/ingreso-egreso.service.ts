@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-
-import 'firebase/firestore';
 import { AngularFirestore } from '@angular/fire/firestore';
+import 'firebase/firestore';
 import { IngresoEgreso } from '../models/ingreso-egreso';
 import { AuthService } from './auth.service';
 
@@ -22,5 +21,12 @@ export class IngresoEgresoService {
       .add({ ...ingresoEgreso })
       .then((ref) => console.log('!Exito', ref))
       .catch((err) => console.warn(err));
+  }
+
+  initIngresosEgresosListener(uid: string) {
+    this.firestore
+      .collection(`${uid}/ingresos-egresos/items`)
+      .valueChanges()
+      .subscribe((items) => console.log(items));
   }
 }
