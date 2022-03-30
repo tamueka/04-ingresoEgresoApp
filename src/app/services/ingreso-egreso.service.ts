@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import 'firebase/firestore';
 import { map } from 'rxjs/operators';
-import { IngresoEgreso } from '../models/ingreso-egreso';
+import { IngresoEgreso } from '../models/ingreso-egreso.models';
 import { AuthService } from './auth.service';
 
 @Injectable({

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IngresoEgreso } from '../models/ingreso-egreso';
+import { IngresoEgreso } from '../models/ingreso-egreso.models';
 import { IngresoEgresoService } from '../services/ingreso-egreso.service';
 import Swal from 'sweetalert2';
 import { Store } from '@ngrx/store';

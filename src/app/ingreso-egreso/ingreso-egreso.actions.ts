@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { IngresoEgreso } from '../models/ingreso-egreso';
+import { IngresoEgreso } from '../models/ingreso-egreso.models';
 
 export const setItems = createAction(
   '[IngresoEgreso] Set Items',
