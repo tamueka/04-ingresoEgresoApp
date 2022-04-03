@@ -21,16 +21,8 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
   TotalEgresos = 0;
 
   // Doughnut
-  public doughnutChartLabels: Label[] = [
-    'Download Sales',
-    'In-Store Sales',
-    'Mail-Order Sales',
-  ];
-  public doughnutChartData: MultiDataSet = [
-    [350, 450, 100],
-    [50, 150, 120],
-    [250, 130, 70],
-  ];
+  public doughnutChartLabels: Label[] = ['Ingresos', 'Egresos'];
+  public doughnutChartData: MultiDataSet = [[]];
   public doughnutChartType: ChartType = 'doughnut';
 
   constructor(private store: Store<AppState>) {}
@@ -55,9 +47,11 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
         this.egresos++;
       }
     }
+    // introducimos valores en la grafica
+    this.doughnutChartData = [[this.TotalIngresos, this.TotalEgresos]];
   }
 
-  // events
+  // events grafic
   public chartClicked({
     event,
     active,
