@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IngresoEgreso } from '../../models/ingreso-egreso.models';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Subscription } from 'rxjs';
+import { ChartData, ChartType } from 'chart.js';
+import { MultiDataSet, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-estadistica',
@@ -18,6 +19,19 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
   egresos = 0;
   TotalIngresos = 0;
   TotalEgresos = 0;
+
+  // Doughnut
+  public doughnutChartLabels: Label[] = [
+    'Download Sales',
+    'In-Store Sales',
+    'Mail-Order Sales',
+  ];
+  public doughnutChartData: MultiDataSet = [
+    [350, 450, 100],
+    [50, 150, 120],
+    [250, 130, 70],
+  ];
+  public doughnutChartType: ChartType = 'doughnut';
 
   constructor(private store: Store<AppState>) {}
 
@@ -41,5 +55,26 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
         this.egresos++;
       }
     }
+  }
+
+  // events
+  public chartClicked({
+    event,
+    active,
+  }: {
+    event: MouseEvent;
+    active: {}[];
+  }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({
+    event,
+    active,
+  }: {
+    event: MouseEvent;
+    active: {}[];
+  }): void {
+    console.log(event, active);
   }
 }

@@ -10,6 +10,7 @@ import { appReducers } from './app.reducer';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ChartsModule } from 'ng2-charts';
 
 // Modulos
 import { BrowserModule } from '@angular/platform-browser';
@@ -51,6 +52,7 @@ import { OrdenarIngresoPipe } from './pipes/ordenar-ingreso.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    ChartsModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
