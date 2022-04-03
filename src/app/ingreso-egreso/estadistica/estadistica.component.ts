@@ -38,6 +38,12 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
   }
 
   generarEstadistica(items: IngresoEgreso[]) {
+    // inicializamos valores para la estadististica
+    this.ingresos = 0;
+    this.egresos = 0;
+    this.TotalIngresos = 0;
+    this.TotalEgresos = 0;
+
     for (const item of items) {
       if (item.tipo === 'Ingreso') {
         this.TotalIngresos += item.monto;
