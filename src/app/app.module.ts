@@ -17,6 +17,8 @@ import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
+
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -24,9 +26,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
 import { EstadisticaComponent } from './ingreso-egreso/estadistica/estadistica.component';
 import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { OrdenarIngresoPipe } from './pipes/ordenar-ingreso.pipe';
 
 @NgModule({
@@ -36,14 +35,12 @@ import { OrdenarIngresoPipe } from './pipes/ordenar-ingreso.pipe';
     IngresoEgresoComponent,
     EstadisticaComponent,
     DetalleComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
     OrdenarIngresoPipe,
   ],
   imports: [
     BrowserModule,
     AuthModule,
+    SharedModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
