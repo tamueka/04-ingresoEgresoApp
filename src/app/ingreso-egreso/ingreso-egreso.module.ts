@@ -11,9 +11,11 @@ import { DetalleComponent } from './detalle/detalle.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 import { SharedModule } from '../shared/shared.module';
+import { DashboardRoutesModule } from '../dashboard/dashboard-routes.module';
 
 // Pipes
 import { OrdenarIngresoPipe } from '../pipes/ordenar-ingreso.pipe';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,6 @@ import { OrdenarIngresoPipe } from '../pipes/ordenar-ingreso.pipe';
     DetalleComponent,
     OrdenarIngresoPipe,
   ],
-  imports: [CommonModule, ReactiveFormsModule, ChartsModule, SharedModule],
+  imports: [CommonModule, ReactiveFormsModule, ChartsModule, SharedModule, DashboardRoutesModule],
 })
 export class IngresoEgresoModule {}
