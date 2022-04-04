@@ -16,5 +16,14 @@
     {
       "path": "./e2e/tsconfig.json"
     }
-]
+  ],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    /* Experimental Options */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true
+  }
 }
