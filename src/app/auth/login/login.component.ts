@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
 
     this.uiSubscription = this.store.select('ui').subscribe((ui) => {
-      console.log(`Cargando: ${ui.isLoading}`);
       this.cargando = ui.isLoading;
     });
   }
@@ -39,7 +38,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.uiSubscription.unsubscribe();
     this.cargando = false;
-    console.log(`Cancelamos cargando`);
   }
 
   logearUsuario() {
